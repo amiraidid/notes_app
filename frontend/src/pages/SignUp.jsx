@@ -13,7 +13,7 @@ export default function SignUp() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('/auth/signup', inputs)
+        axios.post('http://localhost:8000/auth/signup', inputs)
         .then(res => {
             toast.success(res.data.message)
             navigate('/login')

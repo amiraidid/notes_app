@@ -11,7 +11,7 @@ export const NotesProvider = ({ children }) => {
     // Get all notes
     const getNotes = () => {
         axios
-        .get("/notes")
+        .get("http://localhost:8000/notes")
         .then((res) => {
             setNotes(res.data.notes);
         })
@@ -25,7 +25,7 @@ export const NotesProvider = ({ children }) => {
         }
 
         axios
-        .post("/notes/create-note", newNote, {
+        .post("http://localhost:8000/notes/create-note", newNote, {
             headers: { authorization: token },
         })
         .then((res) => {
@@ -38,7 +38,7 @@ export const NotesProvider = ({ children }) => {
     // Update an existing note
     const updateNote = async (id, updatedNote) => {
         try {
-        const res = await fetch(`/notes/edit/${id}`, {
+        const res = await fetch(`http://localhost:8000/notes/edit/${id}`, {
             method: "PUT", 
             headers: {
             "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export const NotesProvider = ({ children }) => {
   // Delete a note
     const deleteNote = (id) => {
         axios
-        .delete(`/notes/delete/${id}`)
+        .delete(`http://localhost:8000/notes/delete/${id}`)
         .then((res) => {
             toast.success(res.data.message);
             setNotes((prevNotes) => prevNotes.filter((note) => note._id !== id)); 

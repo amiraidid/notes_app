@@ -12,7 +12,7 @@ export default function Login() {
     const navigate = useNavigate()
     
     const handleLogin = (e) => {
-        axios.post('/auth/login', inputs)
+        axios.post('http://localhost:8000/auth/login', inputs)
         .then(res => {
             setUser(res.data.token)
             localStorage.setItem('user-token', res.data.token)
