@@ -1,0 +1,6 @@
+export { default as Home } from './Home'
+export { default as Login } from './Login'
+export { default as SignUp } from './SignUp'
+export { default as Notes } from './Notes'
+export { default as PageNotFound } from './PageNotFound'
+export { default as Dashbaord } from './Dashboard'
